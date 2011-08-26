@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.codeexample</groupId>
+	<artifactId>ajaxlogs</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>ajaxlogs Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jetty.version>6.1.25</jetty.version>
+		<geronimo.version>1.0</geronimo.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Common used Java EE 6 specs -->
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jsp_2.2_spec</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-servlet_3.0_spec</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- jetty <dependency> <groupId>org.mortbay.jetty</groupId> <artifactId>jetty</artifactId> 
+			<version>${jetty.version}</version> <scope>test</scope> </dependency> <dependency> 
+			<groupId>org.mortbay.jetty</groupId> <artifactId>jsp-2.1-jetty</artifactId> 
+			<version>${jetty.version}</version> <scope>test</scope> </dependency> <dependency> 
+			<groupId>org.mortbay.jetty</groupId> <artifactId>servlet-api-3.0</artifactId> 
+			<version>7.0.0pre2</version> </dependency> <dependency> <groupId>org.mortbay.jetty</groupId> 
+			<artifactId>servlet-api-3.0</artifactId> <version>7.0.0pre2</version> </dependency> -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>ajaxlogs</finalName>
+		<plugins>
+			<!-- enable java 6 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<webAppConfig>
+						<contextPath>/ajaxlogs</contextPath>
+					</webAppConfig>
+				</configuration>
+				<!-- <version>8.0.0.RC0</version> <configuration> <stopPort>9966</stopPort> 
+					<stopKey>foo</stopKey> </configuration> -->
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<wtpversion>2.0</wtpversion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

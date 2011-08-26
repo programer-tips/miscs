@@ -1,0 +1,36 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+	<listener>
+		<listener-class>org.codeexample.ajaxlogs.web.MyContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.codeexample.ajaxlogs.web.MyContextListener</listener-class>
+	</listener>
+
+	<!-- in case we deploy this app to server that doesn't support Servlet 3.0 -->
+	<servlet>
+		<servlet-name>ListingLogDirectoryServlet</servlet-name>
+		<display-name>ListingLogDirectoryServlet</display-name>
+		<description></description>
+		<servlet-class>org.codeexample.ajaxlogs.web.ListingLogDirectoryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListingLogDirectoryServlet</servlet-name>
+		<url-pattern>/listingLogDirectory</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>TailingLogServlet</servlet-name>
+		<display-name>TailingLogServlet</display-name>
+		<description></description>
+		<servlet-class>org.codeexample.ajaxlogs.web.TailingLogServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TailingLogServlet</servlet-name>
+		<url-pattern>/tailingLog</url-pattern>
+	</servlet-mapping>
+</web-app>

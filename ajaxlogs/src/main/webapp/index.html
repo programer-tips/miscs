@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>My Ajax app - read last lines</title>
+<!-- add your meta tags here -->
+<link rel="stylesheet" type="text/css"
+	href="themes/black-tie/jquery-ui-1.8.custom.css" />
+<link href="css/my_layout.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 7]>
+<link href="css/patches/patch_my_layout.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<script type="text/javascript" src="scripts/jquery-1.6.2.min"></script>
+<script type="text/javascript"
+	src="scripts/jquery-ui-1.8.16.custom.min"></script>
+<script type="text/javascript" src="scripts/jquery.validate"></script>
+<script type="text/javascript" src="scripts/main"></script>
+</head>
+<body>
+	<div class="page_margins">
+		<div id="header">
+			<h2>Ajax Logs</h2>
+		</div>
+		<div id="nav">
+			<!-- skiplink anchor: navigation -->
+			<a id="navigation" name="navigation"></a>
+			<div class="hlist">
+				<!-- main navigation: horizontal list -->
+				<ul>
+					<li class="active"><strong>Home</strong>
+					</li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="about.html">About</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<div id="col1">
+				<div id="col1_content" class="clearfix">
+					<form id="tailLogForm">
+						<fieldset>
+							<legend>
+								<h3>Read last n lines from one server file</h3>
+							</legend>
+							<table>
+								<tr>
+									<td><label for="logFiles">Select File:</label>
+									</td>
+									<td>&nbsp<select id="logFiles" /></td>
+								</tr>
+								<tr>
+									<td><label for="lastLineNumber">Last n Lines:</label>
+									</td>
+									<td><em>*</em><input id="lastLineNumber" type="text"
+										value="100" class="required number" /></td>
+								</tr>
+								<tr>
+									<td><label for="xmillSeconds">Poll every seconds:</label></td>
+									<td><em>*</em><input id="xmillSeconds" type="text"
+										value="1000" class="required number" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<button id="start-button">Start</button>&nbsp&nbsp
+										<button id="stop-button" disabled="disabled">Stop</button></td>
+								</tr>
+							</table>
+						</fieldset>
+					</form>
+					<br />
+					<div class="textareacontainer">
+						<textarea id="logContent" rows="20" readonly="readonly">
+							Watch me!!!
+							</textarea>
+					</div>
+				</div>
+			</div>
+			<div id="col3">
+				<div id="col3_content" class="clearfix">
+					<h3>More Info about me</h3>
+					<a href="http://programer-tips.blogspot.com/">programer-tips.blogspot.com</a><br />
+					<a href="https://github.com/programer-tips">Jeffery on Github</a>
+				</div>
+				<!-- IE Column Clearing -->
+				<div id="ie_clearing">&#160;</div>
+			</div>
+		</div>
+		<div id="footer">
+			This application is developed by Yuan Jeffery as a demo to use Ajax
+			to read log from server. It will read the last n lines from one
+			server log every 1 second.<br>
+			<p>You are free to use the code as you wish.
+		</div>
+	</div>
+</body>
+</html>

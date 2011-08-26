@@ -1,0 +1,63 @@
+function loadFileList() {
+	$
+			.getJSON(
+					"listingLogDirectory",
+					function(response) {
+						var options = [];
+						for ( var i = 0; i < response.length; i++) {
+							options
+									.push(
+											'<option value="',
+						            response[i], '">',
+											response[i], '</option>');
+						}
+						$("#logFiles").html(options.join(''));
+					});
+}
+
+var timer;
+function readLastLines()
+{
+	$.get('tailingLog',
+			{
+		"log" : $("#logFiles").val(),
+		"lastLineNumber": $("#lastLineNumber").val(),
+	}, 
+	function(data) {
+		$('#logContent').html(data);
+	});
+}
+var xmillSeconds = 1000;
+$(function() {
+	loadFileList();
+	$('#start-button').click(function() {
+		lastLineNumber= $("#lastLineNumber").val();
+		
+		if(isNaN(lastLineNumber) || parseInt(lastLineNumber) < 0 )
+		{
+			alert(lastLineNumber + " is invalid as last line number, please input a number");
+			return false;
+		}
+		xmillSeconds = $("#xmillSeconds").val();
+		if(isNaN(xmillSeconds) || parseInt(xmillSeconds) < 0 )
+		{
+			alert(xmillSeconds + " is invalid as mill seconds, please input a number");
+			return false;
+		}
+		$('#logContent').html("");
+		timer=setInterval(readLastLines,xmillSeconds);
+		$("#start-button").attr("disabled", true);
+		$("#stop-button").removeAttr("disabled");
+		return false;
+	});
+
+	$('#stop-button').click(function() {
+		clearTimeout(timer);
+		$("#stop-button").attr("disabled", true);
+		$("#start-button").removeAttr("disabled");
+		return false;
+	});
+	
+    $("#tailLogForm").validate();
+
+});

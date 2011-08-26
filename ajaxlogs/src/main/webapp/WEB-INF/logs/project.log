@@ -1,0 +1,5 @@
+[2011-08-25 02:05:33,156] INFO  logsPath: D:\projects\web\ajaxlogs\src\main\webapp\WEB-INF\logs
+[2011-08-25 02:05:33,156] INFO  contextInitialized started
+[2011-08-25 02:05:33,156] INFO  contextInitialized ended
+[2011-08-25 02:05:49,671] INFO  contextDestroyed started
+[2011-08-25 02:05:49,671] INFO  contextDestroyed ended
